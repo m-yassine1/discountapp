@@ -45,14 +45,14 @@ public class StoreDiscountsTest {
     public void calculateDiscountForEmployee() {
         when(mockCustomer.getDiscountTypes()).thenReturn(DiscountTypes.EMPLOYEE);
         BigDecimal discountValue = this.storeDiscounts.calculateDiscount(mockCustomer, shoppingCardList);
-        Assert.assertEquals(BigDecimal.valueOf(70.11), discountValue);
+        Assert.assertEquals(BigDecimal.valueOf(70.119).stripTrailingZeros(), discountValue.stripTrailingZeros());
     }
 
     @Test
     public void calculateDiscountForAffiliate() {
         when(mockCustomer.getDiscountTypes()).thenReturn(DiscountTypes.AFFILIATE);
         BigDecimal discountValue = this.storeDiscounts.calculateDiscount(mockCustomer, shoppingCardList);
-        Assert.assertEquals(BigDecimal.valueOf(23.37), discountValue);
+        Assert.assertEquals(BigDecimal.valueOf(23.373).stripTrailingZeros(), discountValue.stripTrailingZeros());
     }
 
     @Test
@@ -60,7 +60,7 @@ public class StoreDiscountsTest {
         when(mockCustomer.getDiscountTypes()).thenReturn(DiscountTypes.CUSTOMER);
         when(mockCustomer.getStartDate()).thenReturn(LocalDateTime.now().minusYears(3));
         BigDecimal discountValue = this.storeDiscounts.calculateDiscount(mockCustomer, shoppingCardList);
-        Assert.assertEquals(BigDecimal.valueOf(11.68), discountValue);
+        Assert.assertEquals(BigDecimal.valueOf(11.6865).stripTrailingZeros(), discountValue.stripTrailingZeros());
     }
 
     @Test
@@ -68,7 +68,7 @@ public class StoreDiscountsTest {
         when(mockCustomer.getDiscountTypes()).thenReturn(DiscountTypes.CUSTOMER);
         when(mockCustomer.getStartDate()).thenReturn(LocalDateTime.now().minusDays(1));
         BigDecimal discountValue = this.storeDiscounts.calculateDiscount(mockCustomer, shoppingCardList);
-        Assert.assertEquals(BigDecimal.valueOf(10), discountValue);
+        Assert.assertEquals(BigDecimal.valueOf(11.6865).stripTrailingZeros(), discountValue.stripTrailingZeros());
     }
 
     @Test
@@ -79,7 +79,7 @@ public class StoreDiscountsTest {
         shoppingCardList.add(new Item("G-1", BigDecimal.valueOf(100.23), ItemType.GROCERY));
         shoppingCardList.add(new Item("G-2", BigDecimal.valueOf(33.28), ItemType.ANYTYPEOFGOODS));
         BigDecimal discountValue = this.storeDiscounts.calculateDiscount(mockCustomer, shoppingCardList);
-        Assert.assertEquals(BigDecimal.valueOf(0), discountValue);
+        Assert.assertEquals(BigDecimal.ZERO, discountValue);
     }
 
     @Test
@@ -88,7 +88,7 @@ public class StoreDiscountsTest {
         shoppingCardList.add(new Item("G-1", BigDecimal.valueOf(100.23), ItemType.GROCERY));
         shoppingCardList.add(new Item("G-2", BigDecimal.valueOf(33.28), ItemType.GROCERY));
         BigDecimal discountValue = this.storeDiscounts.calculateDiscount(mockCustomer, shoppingCardList);
-        Assert.assertEquals(BigDecimal.valueOf(0), discountValue);
+        Assert.assertEquals(BigDecimal.ZERO, discountValue);
         verify(mockCustomer, times(0)).getDiscountTypes();
     }
 
@@ -99,7 +99,7 @@ public class StoreDiscountsTest {
         List<Item> shoppingCardList = new ArrayList<>(1);
         shoppingCardList.add(new Item("G-2", BigDecimal.valueOf(33.28), ItemType.ANYTYPEOFGOODS));
         BigDecimal discountValue = this.storeDiscounts.calculateDiscount(mockCustomer, shoppingCardList);
-        Assert.assertEquals(BigDecimal.valueOf(0), discountValue);
+        Assert.assertEquals(BigDecimal.ZERO, discountValue);
     }
 
     @Test
@@ -109,6 +109,6 @@ public class StoreDiscountsTest {
         List<Item> shoppingCardList = new ArrayList<>(1);
         shoppingCardList.add(new Item("G-2", BigDecimal.valueOf(990), ItemType.ANYTYPEOFGOODS));
         BigDecimal discountValue = this.storeDiscounts.calculateDiscount(mockCustomer, shoppingCardList);
-        Assert.assertEquals(BigDecimal.valueOf(45), discountValue);
+        Assert.assertEquals(BigDecimal.valueOf(49.5).stripTrailingZeros(), discountValue.stripTrailingZeros());
     }
 }

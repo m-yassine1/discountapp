@@ -6,12 +6,12 @@ import com.retail.discountapp.domain.enums.ItemType;
 import com.retail.discountapp.service.DiscountService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.util.List;
-import org.springframework.stereotype.Service;
 
 @Service
 public class StoreDiscounts implements DiscountService {
@@ -45,7 +45,10 @@ public class StoreDiscounts implements DiscountService {
         if (customer.getStartDate().isBefore(LocalDateTime.now().minusYears(2))) {
             return calculatePercentage(CUSTOMER_OVER_TWO_YEARS, totalPurchaseAmount);
         }
-        return totalPurchaseAmount.divide(HUNDRED, 0, RoundingMode.DOWN).multiply(SPENDING_OVER_100);
+        if (totalPurchaseAmount.compareTo(HUNDRED) > 0) {
+            return totalPurchaseAmount.divide(HUNDRED, 10, RoundingMode.DOWN).multiply(SPENDING_OVER_100);
+        }
+        return BigDecimal.ZERO;
     }
 
     private BigDecimal calculateDiscountableItems(List<Item> purchasedItems) {
@@ -56,6 +59,6 @@ public class StoreDiscounts implements DiscountService {
     }
 
     private BigDecimal calculatePercentage(BigDecimal obtained, BigDecimal total) {
-        return total.multiply(obtained).divide(HUNDRED, 2, RoundingMode.FLOOR);
+        return total.multiply(obtained).divide(HUNDRED, 10, RoundingMode.FLOOR);
     }
 }
