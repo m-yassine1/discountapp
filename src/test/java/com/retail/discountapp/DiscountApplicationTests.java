@@ -13,4 +13,8 @@ public class DiscountApplicationTests {
     public void contextLoads() {
     }
 
+    @Test
+    public void applicationContextTest() {
+        DiscountApplication.main(new String[] {});
+    }
 }
