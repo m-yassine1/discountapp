@@ -37,7 +37,7 @@ public class CustomerCheckout implements CustomerService {
         }
         logger.info("Customer with Id {} was found, Starting discount calculation.", customerId);
         BigDecimal discount = discountService.calculateDiscount(customer.get(), shoppingCardItems);
-        logger.info("Customer with Id {} received a total of {} discount.", discount);
+        logger.info("Customer with Id {} received a total of {} discount.", customerId, discount);
         return discount;
     }
 }

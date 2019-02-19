@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.retail.discountapp.domain</OriginalElement>
+  <nodes>
+    <node x="0.0" y="79.0">com.retail.discountapp.domain.Customer</node>
+    <node x="59.34166666666667" y="0.0">com.retail.discountapp.domain.enums.DiscountTypes</node>
+    <node x="20.5" y="268.0">com.retail.discountapp.domain.PurchasedItem</node>
+    <node x="248.5" y="323.0">com.retail.discountapp.domain.enums.ItemType</node>
+    <node x="71.0" y="457.0">com.retail.discountapp.domain.Item</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.retail.discountapp.domain.PurchasedItem" target="com.retail.discountapp.domain.Customer">
+      <point x="-78.0" y="-69.5" />
+      <point x="46.5" y="243.0" />
+      <point x="31.125" y="243.0" />
+      <point x="-93.375" y="69.5" />
+    </edge>
+    <edge source="com.retail.discountapp.domain.Customer" target="com.retail.discountapp.domain.PurchasedItem">
+      <point x="93.375" y="69.5" />
+      <point x="217.875" y="243.0" />
+      <point x="202.5" y="243.0" />
+      <point x="78.0" y="-69.5" />
+    </edge>
+    <edge source="com.retail.discountapp.domain.Item" target="com.retail.discountapp.domain.enums.ItemType">
+      <point x="52.75" y="-69.5" />
+      <point x="229.25" y="427.0" />
+      <point x="272.75" y="427.0" />
+      <point x="-24.25" y="14.5" />
+    </edge>
+    <edge source="com.retail.discountapp.domain.PurchasedItem" target="com.retail.discountapp.domain.Item">
+      <point x="26.0" y="69.5" />
+      <point x="150.5" y="437.0" />
+      <point x="158.91666666666666" y="437.0" />
+      <point x="-17.583333333333343" y="-69.5" />
+    </edge>
+    <edge source="com.retail.discountapp.domain.Customer" target="com.retail.discountapp.domain.enums.DiscountTypes">
+      <point x="62.25" y="-69.5" />
+      <point x="186.75" y="54.0" />
+      <point x="152.34166666666667" y="54.0" />
+      <point x="31.0" y="14.5" />
+    </edge>
+    <edge source="com.retail.discountapp.domain.Item" target="com.retail.discountapp.domain.PurchasedItem">
+      <point x="-87.91666666666666" y="-69.5" />
+      <point x="88.58333333333334" y="437.0" />
+      <point x="46.5" y="437.0" />
+      <point x="-78.0" y="69.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="157.33333333333337" y="404.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

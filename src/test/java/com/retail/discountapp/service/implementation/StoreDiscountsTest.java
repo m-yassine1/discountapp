@@ -8,28 +8,28 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.mockito.internal.verification.VerificationModeFactory.times;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+@RunWith(MockitoJUnitRunner.class)
 public class StoreDiscountsTest {
 
-    @MockBean
+    @Mock
     Customer mockCustomer;
 
     private List<Item> shoppingCardList;
 
-    @Autowired
+    @InjectMocks
     private StoreDiscounts storeDiscounts;
 
     @Before
@@ -84,12 +84,12 @@ public class StoreDiscountsTest {
 
     @Test
     public void calculateDiscountForJustGrocery() {
-        when(mockCustomer.getDiscountTypes()).thenReturn(DiscountTypes.EMPLOYEE);
         List<Item> shoppingCardList = new ArrayList<>(2);
         shoppingCardList.add(new Item("G-1", BigDecimal.valueOf(100.23), ItemType.GROCERY));
         shoppingCardList.add(new Item("G-2", BigDecimal.valueOf(33.28), ItemType.GROCERY));
         BigDecimal discountValue = this.storeDiscounts.calculateDiscount(mockCustomer, shoppingCardList);
         Assert.assertEquals(BigDecimal.valueOf(0), discountValue);
+        verify(mockCustomer, times(0)).getDiscountTypes();
     }
 
     @Test

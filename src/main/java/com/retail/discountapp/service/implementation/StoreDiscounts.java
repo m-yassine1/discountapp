@@ -6,20 +6,20 @@ import com.retail.discountapp.domain.enums.ItemType;
 import com.retail.discountapp.service.DiscountService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class StoreDiscounts implements DiscountService {
-    private final BigDecimal HUNDRED = BigDecimal.valueOf(100);
-    private final BigDecimal EMPLOYEE_DISCOUNT = BigDecimal.valueOf(30);
-    private final BigDecimal AFFILIATE_DISCOUNT = BigDecimal.valueOf(10);
-    private final BigDecimal CUSTOMER_OVER_TWO_YEARS = BigDecimal.valueOf(5);
-    private final BigDecimal SPENDING_OVER_100 = BigDecimal.valueOf(5);
+    private static final BigDecimal HUNDRED = BigDecimal.valueOf(100);
+    private static final BigDecimal EMPLOYEE_DISCOUNT = BigDecimal.valueOf(30);
+    private static final BigDecimal AFFILIATE_DISCOUNT = BigDecimal.valueOf(10);
+    private static final BigDecimal CUSTOMER_OVER_TWO_YEARS = BigDecimal.valueOf(5);
+    private static final BigDecimal SPENDING_OVER_100 = BigDecimal.valueOf(5);
     private Logger logger = LoggerFactory.getLogger(StoreDiscounts.class);
 
     @Override
