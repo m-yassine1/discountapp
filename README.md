@@ -28,6 +28,10 @@ The application core exists in
 com.retail.discountapp.service.implementation.StoreDiscounts
 ```
 
+## Sonar results
+https://sonarcloud.io/dashboard?id=gabriel-a_discountapp 
+
+
 ## Built With
 
 * [Java](https://spring.io/) - The language Java
