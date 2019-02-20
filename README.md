@@ -18,7 +18,9 @@ git clone https://github.com/gabriel-a/discountapp.git
 ```
 
 ######To run the application
+```
 mvn spring-boot:run
+```
 
 ######To run tests
 
