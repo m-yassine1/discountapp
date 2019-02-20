@@ -11,22 +11,29 @@ Is an application to Calculate discount depending on Discount types.
 
 ### Installing
 
-Checkout the project from git
+######Checkout the project from git
 
 ```
 git clone https://github.com/gabriel-a/discountapp.git
 ```
 
-To run tests
+######To run the application
+mvn spring-boot:run
+
+######To run tests
 
 ```
 mvn clean install
 ```
 
-The application core exists in 
+######The application core exists in 
 ```
 com.retail.discountapp.service.implementation.StoreDiscounts
 ```
+
+## API documentation
+http://localhost:8080/swagger-ui.html
+
 
 ## Sonar results
 https://sonarcloud.io/dashboard?id=gabriel-a_discountapp 

@@ -2,5 +2,6 @@ package com.retail.discountapp.domain.enums;
 
 public enum ItemType {
     GROCERY,
-    ANYTYPEOFGOODS,
+    ELECTRONICS,
+    ANY_OTHER_TYPE_OF_GOODS
 }

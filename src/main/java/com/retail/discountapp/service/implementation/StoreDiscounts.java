@@ -46,7 +46,7 @@ public class StoreDiscounts implements DiscountService {
             return calculatePercentage(CUSTOMER_OVER_TWO_YEARS, totalPurchaseAmount);
         }
         if (totalPurchaseAmount.compareTo(HUNDRED) > 0) {
-            return totalPurchaseAmount.divide(HUNDRED, 10, RoundingMode.FLOOR).multiply(SPENDING_OVER_100);
+            return totalPurchaseAmount.divide(HUNDRED, 0, RoundingMode.DOWN).multiply(SPENDING_OVER_100);
         }
         return BigDecimal.ZERO;
     }
