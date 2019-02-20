@@ -28,11 +28,11 @@ public class StoreCheckoutController {
     @ApiOperation(value = "Retrieve discount for customer, customerId 1 = Employee, 2 = Affiliate, 3 = Customer, 4 = Over 100$ bill Customer ")
     public CheckoutResponse checkCustomerDiscountsBeforeCheckout(@PathVariable long customerId) {
         //In Real the customer ID would be represented as the logged in user token or this API will be a backend API.
-        return new CheckoutResponse(customerService.checkCustomerDiscountsBeforeCheckout(customerId, GetMockedShoppingCard()));
+        return new CheckoutResponse(customerService.checkCustomerDiscountsBeforeCheckout(customerId, getMockedShoppingCard()));
     }
 
     //This should be a list of data retrieved from frontend systems of the client shopping card
-    private List<Item> GetMockedShoppingCard() {
+    private List<Item> getMockedShoppingCard() {
         return itemsRepository.findAll();
     }
 }
