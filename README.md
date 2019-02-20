@@ -40,6 +40,10 @@ http://localhost:8080/swagger-ui.html
 ## Sonar results
 https://sonarcloud.io/dashboard?id=gabriel-a_discountapp 
 
+## UML Class Diagram
+
+![class_diagram](documentation/diagram.png)
+
 
 ## Built With
 
